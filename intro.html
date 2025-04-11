@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자연소개</title>
+    <link rel="icon" href="image/earth-1303628_1280.png">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+            background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6') center/cover no-repeat fixed;
+            color: #2e7d32;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            animation: slideDown 1s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        header h1 {
+            font-size: 2rem;
+            color: #1b5e20;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .nav-buttons button {
+            padding: 0.7rem 1.5rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            background-color: #66bb6a;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-buttons button:hover {
+            background-color: #388e3c;
+        }
+
+        .intro-box {
+            max-width: 900px;
+            margin: 1rem auto 2rem;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-left: 6px solid #81c784;
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #2e7d32;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.8s ease-in;
+        }
+
+        .intro-box span {
+            font-size: 1.5rem;
+            margin-right: 8px;
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 3rem auto;
+            padding: 2rem;
+            max-width: 900px;
+            border-radius: 20px;
+            animation: fadeIn 2s ease;
+        }
+
+        .content h2 {
+            color: #388e3c;
+            margin-bottom: 1rem;
+        }
+
+        .content p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .content img {
+            width: 100%;
+            border-radius: 15px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            background-color: rgba(255, 255, 255, 0.95);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 1.5rem;
+                margin: 2rem 1rem;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>🌱 자연소개</h1>
+    </header>
+
+    <div class="nav-buttons">
+        <button onclick="location.href='index.html'">🏠 홈으로</button>
+    </div>
+
+    <div class="intro-box">
+        <span>🌍</span>우리가 살아가는 이 지구, 그 품 안에 숨 쉬는 자연을 소개합니다.<br />
+        아름답고 소중한 자연의 이야기를 지금 만나보세요.
+    </div>
+
+    <section class="content">
+        <h2>우리가 지켜야 할 아름다운 자연</h2>
+        <p>
+            지구는 약 46억 년의 세월 동안 다양한 생태계와 생명체들을 품어왔습니다.
+            숲의 나무 한 그루, 산속의 작은 생명, 맑은 하늘과 깨끗한 강은 단순한 자연의 일부가 아니라 우리 삶의 기반입니다.
+        </p>
+
+        <img src="image/penguin-9504250_1280.jpg" alt="아름다운 펭귄의 이미지">
+
+        <p>
+            자연은 우리가 숨 쉬고, 먹고, 살아가는 모든 것을 제공하는 근원이자 친구입니다.
+            하지만 그 소중함을 잊고 파괴해온 시간도 길었습니다. 이제는 다시 자연과 함께 살아가기 위한 노력이 필요합니다.
+        </p>
+
+        <img src="image/mountains-8292685_1280.jpg" alt="청정한 자연의 산">
+
+        <p>
+            자연은 인간뿐 아니라 모든 생명체에게 공통된 터전입니다. 우리가 보호해야 할 이유는 단지 환경보호를 넘어서,
+            다음 세대에게 물려줘야 할 책임이 있기 때문입니다.
+            지속 가능한 미래를 위해, 지금 우리가 자연을 사랑하고 돌보는 일이 그 어느 때보다 중요합니다.
+        </p>
+    </section>
+
+    <section class="content">
+        <h2>우리가 품은 자연, 자연이 품은 우리</h2>
+        <p>
+            자연은 단순한 배경이 아닙니다. 바람결 따라 흔들리는 나뭇잎, 조용히 흐르는 강물, 계절마다 모습을 바꾸는 들꽃 하나하나는
+            우리의 삶과 깊이 연결되어 있습니다. 우리는 자연 속에서 숨 쉬고, 자연이 준 선물로 살아갑니다.
+        </p>
+
+        <img src="image/landscape-4343399_1280.jpg" alt="숲속 이미지">
+
+        <p>
+            숲은 수천 년 동안 그 자리를 지켜오며, 다양한 생명체의 집이 되어왔습니다.
+            나무는 공기를 정화하고, 토양을 보호하며, 수많은 생물들이 공존하는 생태계를 만들어냅니다.
+            그리고 이 모든 생태계는 보이지 않는 연결고리로 우리와 이어져 있죠.
+        </p>
+
+        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e" alt="자연 속 호수">
+
+        <p>
+            하늘은 우리에게 빛과 구름, 그리고 비를 선물하고, 바다는 수많은 생명과 수분 순환의 근원이 됩니다.
+            이처럼 자연은 거대한 조화의 무대이며, 우리는 그 안에서 살아가는 한 존재일 뿐입니다.
+            하지만 개발과 오염, 무분별한 자원 소비는 자연의 균형을 무너뜨리고 있습니다.
+        </p>
+
+        <img src="image/waterfall-801611_1280.jpg" alt="계곡과 물줄기 이미지">
+
+        <p>
+            이제는 자연과 다시 손을 맞잡아야 할 때입니다. 자연을 지킨다는 것은 곧 우리 삶의 터전을 지키는 것이고,
+            더 나아가 미래 세대가 살아갈 건강한 지구를 준비하는 일입니다.
+            우리가 자연을 얼마나 사랑하고 존중하느냐에 따라 지구의 내일이 달라집니다.
+        </p>
+
+        <p>
+            자연은 우리에게 아무 조건 없이 쉼을 주고, 위로를 주는 존재입니다.
+            그 아름다움과 고마움을 다시 돌아보며, 오늘부터라도 우리의 일상에서 작은 실천을 시작해보는 건 어떨까요?
+        </p>
+    </section>
+
+    <footer>
+        <div style="max-width: 1000px; margin: auto; padding: 2rem 1rem;">
+            <p style="font-size: 1.1rem; color: #2e7d32; font-weight: bold; margin-bottom: 1rem;">
+                자연은 언제나 우리 곁에 있습니다 🌿
+            </p>
+            <p style="color: #4e944f; line-height: 1.6; margin-bottom: 1.5rem;">
+                오늘 우리가 한 작은 실천이 내일의 자연을 만듭니다.<br />
+                푸른 숲, 맑은 하늘, 깨끗한 물… 그 모든 것을 지키는 여정에 함께해요.
+            </p>
+            <hr style="border: none; height: 1px; background-color: #c8e6c9; margin: 2rem 0;" />
+            <p style="font-size: 0.95rem; color: #666;">
+                <strong style="color: #388e3c;">ⓒ 2025 자연그대로. All rights reserved.</strong>
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

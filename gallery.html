@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>포토갤러리</title>
+    <link rel="icon" href="image/earth-1303628_1280.png">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Gowun Batang', serif;
+            background: linear-gradient(to bottom, #e8f5e9, #f1f8e9);
+            color: #2e7d32;
+        }
+
+        header,
+        .nav-buttons,
+        .intro-box,
+        .content h2,
+        .content p,
+        .gallery-grid {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease-out;
+        }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        header {
+            background-color: #ffffffdd;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #81c784;
+            transition-delay: 0.1s;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+            transition-delay: 0.3s;
+        }
+
+        .nav-buttons button {
+            padding: 0.7rem 1.5rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 25px;
+            background-color: #66bb6a;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-buttons button:hover {
+            background-color: #388e3c;
+        }
+
+        .intro-box {
+            max-width: 1000px;
+            margin: 0 auto 2rem;
+            background-color: #ffffffcc;
+            border-left: 6px solid #81c784;
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            color: #4e944f;
+            font-size: 1.1rem;
+            transition-delay: 0.4s;
+        }
+
+        .intro-box span {
+            font-size: 1.5rem;
+            margin-right: 8px;
+        }
+
+        section.content {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        section.content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            transition-delay: 0.5s;
+        }
+
+        section.content p {
+            font-size: 1.1rem;
+            color: #4e944f;
+            margin-bottom: 2rem;
+            transition-delay: 0.7s;
+        }
+
+        .sub-description {
+            font-size: 1rem;
+            color: #66bb6a;
+            margin-top: -1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem 0;
+            transition-delay: 0.9s;
+        }
+
+        .gallery-item {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img,
+        .gallery-item video {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        footer {
+            background-color: #e0f2f1;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.95rem;
+            color: #388e3c;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>🌿 포토갤러리</h1>
+    </header>
+
+    <div class="nav-buttons">
+        <button onclick="location.href='index.html'">🏠 홈으로</button>
+    </div>
+
+    <!-- 📸 소개 문구 박스 -->
+    <div class="intro-box">
+        <span>📷</span>자연의 아름다움을 한 컷 한 컷 담았습니다.<br />
+        여러분의 마음에도 푸르름이 스며들길 바라는 마음으로 이 갤러리를 준비했어요.
+    </div>
+
+    <section class="content">
+        <h2>자연의 숨결을 담은 공간</h2>
+        <p>사진과 영상으로 자연의 생명력을 만나보세요. 초록의 이야기들이 여러분을 기다리고 있어요 🍀</p>
+        <p class="sub-description">📸 사진과 🎥 영상으로 만나는 생생한 자연의 모습들을 감상해보세요.</p>
+
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="image/daisies-8595971_1280.jpg" alt="자연1" /></div>
+            <div class="gallery-item"><img src="https://source.unsplash.com/400x300/?nature,river" alt="자연2" /></div>
+            <div class="gallery-item"><img src="https://source.unsplash.com/400x300/?nature,flower" alt="자연3" /></div>
+            <div class="gallery-item"><img src="https://source.unsplash.com/400x300/?nature,tree" alt="자연4" /></div>
+
+            <div class="gallery-item">
+                <video controls>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    브라우저가 비디오를 지원하지 않습니다.
+                </video>
+            </div>
+            <div class="gallery-item">
+                <video controls>
+                    <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+                    브라우저가 비디오를 지원하지 않습니다.
+                </video>
+            </div>
+            <div class="gallery-item">
+                <video controls>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    브라우저가 비디오를 지원하지 않습니다.
+                </video>
+            </div>
+            <div class="gallery-item">
+                <video controls>
+                    <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+                    브라우저가 비디오를 지원하지 않습니다.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 자연 그대로. 함께하는 포토 갤러리 🌎
+    </footer>
+
+    <script>
+        const revealOnScroll = () => {
+            const elements = [
+                document.querySelector('header'),
+                document.querySelector('.nav-buttons'),
+                document.querySelector('.intro-box'),
+                document.querySelector('.content h2'),
+                document.querySelector('.content p'),
+                document.querySelector('.gallery-grid')
+            ];
+
+            const triggerBottom = window.innerHeight * 0.9;
+
+            elements.forEach((el) => {
+                const top = el.getBoundingClientRect().top;
+                if (top < triggerBottom) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+    </script>
+</body>
+
+</html>

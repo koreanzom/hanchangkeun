@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자연그대로</title>
+    <link rel="icon" href="image/earth-1303628_1280.png">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-banner {
+            position: relative;
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .main-banner h1 {
+            font-size: 2.5em;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+
+
+
+        .main-banner {
+            animation: fadeIn 2s ease-out forwards;
+            opacity: 0;
+        }
+
+        .banner-text {
+            font-size: 2rem;
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 1rem 2rem;
+            border-radius: 20px;
+            animation: fadeInOut 8s infinite;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            40% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .content {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 1s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        .info-card {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            background-color: #f0f9f4;
+            border-radius: 12px;
+            padding: 1.5rem;
+            align-items: center;
+            gap: 1.5rem;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-item img {
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .info-item-content {
+            flex: 1;
+        }
+
+        .info-item-content h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            color: #2e7d32;
+        }
+
+        .info-item-content p {
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+
+        .action-card {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .action-item {
+            display: flex;
+            background-color: #f0f9f4;
+            border-radius: 12px;
+            padding: 1.5rem;
+            align-items: center;
+            gap: 1.5rem;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .action-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .action-item img {
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .action-item-content {
+            flex: 1;
+        }
+
+        .action-item-content h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            color: #2e7d32;
+        }
+
+        .action-item-content p {
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: url('https://cdn.pixabay.com/photo/2019/06/24/16/43/mountain-4296464_1280.jpg') center/cover no-repeat fixed;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10    px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .menu {
+            font-size: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #2e7d32;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: background-color 0.4s ease, transform 0.3s ease;
+        }
+
+        .menu a:hover {
+            background-color: #e0f2e9;
+            transform: translateY(-2px);
+        }
+
+        .auth-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .auth-links button {
+            font-weight: 600;
+            color: #2e7d32;
+            background: none;
+            border: 2px solid #2e7d32;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .auth-links button:hover {
+            background-color: #2e7d32;
+            color: white;
+        }
+
+        .main-banner {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .main-banner h1 {
+            font-size: 3rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 1rem 2rem;
+            border-radius: 20px;
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            border-radius: 20px;
+        }
+
+        .content h2 {
+            color: #2e7d32;
+            margin-bottom: 1.5rem;
+        }
+
+        .news-card {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .news-item {
+            display: flex;
+            background-color: #f0f9f4;
+            border-radius: 12px;
+            padding: 1.5rem;
+            align-items: center;
+            gap: 1.5rem;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-item img {
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .news-item-content {
+            flex: 1;
+        }
+
+        .news-item-content h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            color: #2e7d32;
+        }
+
+        .news-item-content p {
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.03);
+        }
+
+        .footer {
+            background-color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            z-index: 2000;
+            width: 300px;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .modal.active {
+            display: block;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .modal h3 {
+            margin-bottom: 1rem;
+            color: #2e7d32;
+        }
+
+        .modal input {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .modal button {
+            padding: 0.5rem 1rem;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal button:hover {
+            background-color: #1b5e20;
+        }
+
+        .modal-close {
+            text-align: right;
+            margin-bottom: -1rem;
+            cursor: pointer;
+            color: #888;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            transform: scale(1.05);
+            color: #d32f2f;
+        }
+
+        .footer {
+            background-color: #e8f5e9;
+            padding: 3rem 1rem;
+            color: #2e7d32;
+            font-size: 0.95rem;
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 2px solid #c8e6c9;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #1b5e20;
+        }
+
+        .footer p {
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #388e3c;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #1b5e20;
+        }
+
+        .footer-copy {
+            font-size: 0.85rem;
+            color: #4caf50;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">🌿 자연그대로</div>
+        <div class="menu">
+            <a href="intro.html">자연소개</a>
+            <a href="#crisis">환경심각성</a>
+            <a href="#action">우리가 할 수 있는 것</a>
+            <a href="#news">자연뉴스</a>
+            <a href="gallery.html">포토갤러리</a>
+            <a href="#donate">후원하기</a>
+        </div>
+        <div class="auth-links">
+            <button onclick="openModal('login')">로그인</button>
+            <button onclick="openModal('signup')">회원가입</button>
+        </div>
+    </nav>
+
+    <section class="main-banner">
+        <h1 id="banner-text">자연과 함께하는 세상, 우리가 지켜요</h1>
+    </section>
+
+    <section class="content" id="intro">
+        <h2>자연소개</h2>
+        <div class="info-card">
+            <div class="info-item">
+                <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df" alt="지구 생태계">
+                <div class="info-item-content">
+                    <h3>지구의 생명 네트워크</h3>
+                    <p>지구는 생물과 환경이 상호작용하는 복잡한 생명 네트워크입니다. 이 조화를 유지하는 것이 인류의 지속 가능성과 직결됩니다.</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <img src="image/tree-8468046_640.jpg" alt="자연과 인간">
+                <div class="info-item-content">
+                    <h3>자연과 인간의 공존</h3>
+                    <p>우리는 자연의 일부로서 자연과 조화롭게 살아갈 때 가장 건강하고 풍요로운 삶을 누릴 수 있습니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content" id="crisis">
+        <h2>환경심각성</h2>
+        <div class="info-card">
+            <div class="info-item">
+                <img src="image/apocalypse-7413075_640.jpg" alt="기후변화">
+                <div class="info-item-content">
+                    <h3>기후변화의 가속화</h3>
+                    <p>지구 평균 기온 상승은 생태계 파괴와 이상 기후로 이어지고 있으며, 지금 당장 행동이 필요합니다.</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <img src="image/seal-4926115_640.jpg" alt="오염과 생물 감소">
+                <div class="info-item-content">
+                    <h3>오염과 생물다양성 감소</h3>
+                    <p>플라스틱 오염, 공기 및 수질 오염은 수많은 생명체의 터전을 위협하고 생물종의 멸종을 가속화시키고 있습니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="content" id="action">
+        <h2>우리가 할 수 있는 것</h2>
+        <div class="action-card">
+            <div class="action-item">
+                <img src="image/plant-7702566_1280.jpg" alt="나무심기">
+                <div class="action-item-content">
+                    <h3>나무 심기</h3>
+                    <p>탄소 흡수를 위한 나무심기 운동에 참여해보세요. 나무 한 그루가 지구를 살립니다.</p>
+                </div>
+            </div>
+            <div class="action-item">
+                <img src="image/starbucks-5313533_1280.jpg" alt="일회용품 줄이기">
+                <div class="action-item-content">
+                    <h3>일회용품 줄이기</h3>
+                    <p>텀블러, 장바구니 사용 등 일회용품을 줄이면 해양오염을 막을 수 있습니다.</p>
+                </div>
+            </div>
+            <div class="action-item">
+                <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad" alt="대중교통 이용">
+                <div class="action-item-content">
+                    <h3>대중교통 이용</h3>
+                    <p>자동차보다 대중교통을 이용하면 탄소 배출을 현저히 줄일 수 있어요.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="content" id="news">
+        <h2>자연뉴스</h2>
+        <div class="news-card">
+            <div class="news-item">
+                <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64" alt="뉴스1" />
+                <div class="news-item-content">
+                    <h3>생태계 복원 프로젝트 진행 중</h3>
+                    <p>산림청은 훼손된 산림의 복원 사업을 본격 추진 중입니다. 참여단체 모집 중!</p>
+                </div>
+            </div>
+            <div class="news-item">
+                <img src="image/plastic-cups-973103_1280.jpg" alt="뉴스2" />
+                <div class="news-item-content">
+                    <h3>플라스틱 제로 캠페인</h3>
+                    <p>해양 쓰레기 문제 해결을 위한 시민 캠페인이 전국적으로 진행되고 있습니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content" id="gallery">
+        <h2>포토갤러리</h2>
+        <div class="gallery-grid">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="자연1" />
+            <img src="image/mountains-8292685_1280.jpg" alt="자연2" />
+            <img src="image/daisies-8595971_1280.jpg" alt="자연3" />
+            <img src="image/penguin-9504250_1280.jpg" alt="자연4" />
+        </div>
+    </section>
+
+    <section class="content" id="donate">
+        <h2>후원하기</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+            <div
+                style="flex: 1; min-width: 280px; background-color: #e0f2f1; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <h3 style="color: #2e7d32;">지속 가능한 환경 보호</h3>
+                <p>지속 가능한 환경 보호를 위해<br>후원에 참여해주세요.<br><br>🌿 작은 손길이 큰 변화를 만듭니다.</p>
+            </div>
+
+            <div class="info-card" style="flex: 2; min-width: 280px;">
+                <div class="info-item">
+                    <img src="image/donation-7647719_1280.jpg" alt="기부">
+                    <div class="info-item-content">
+                        <h3>자연 보호 기금 기부</h3>
+                        <p>작은 금액의 기부도 숲 복원, 해양 정화 등 다양한 환경 프로젝트에 큰 도움이 됩니다.</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <img src="image/volunteer-3129484_1280.png" alt="자원봉사">
+                    <div class="info-item-content">
+                        <h3>자원봉사 참여</h3>
+                        <p>직접 나무를 심고, 플로깅 활동에 참여하여 손으로 지구를 지킬 수 있습니다.</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <img src="image/hands-3331216_1280.jpg" alt="물품후원">
+                    <div class="info-item-content">
+                        <h3>물품/장비 후원</h3>
+                        <p>장비, 장화, 쓰레기 집게 등 현장에 필요한 물품 후원도 실질적인 도움이 됩니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">🌱자연그대로</div>
+            <p>작은 실천이 지구를 살립니다.<br>지구와 공존하는 삶을 함께 만들어가요.</p>
+            <div class="footer-copy">&copy; 2025 자연그대로. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+
+    <div id="loginModal" class="modal">
+        <div class="modal-close" onclick="closeModal('login')">✖</div>
+        <h3>로그인</h3>
+        <input type="text" placeholder="아이디" />
+        <input type="password" placeholder="비밀번호" />
+        <button>로그인</button>
+    </div>
+
+    <div id="signupModal" class="modal">
+        <div class="modal-close" onclick="closeModal('signup')">✖</div>
+        <h3>회원가입</h3>
+        <input type="text" placeholder="아이디" />
+        <input type="email" placeholder="이메일" />
+        <input type="password" placeholder="비밀번호" />
+        <button>회원가입</button>
+    </div>
+
+    <script>
+        function openModal(type) {
+            document.getElementById(type + 'Modal').classList.add('active');
+        }
+
+        function closeModal(type) {
+            document.getElementById(type + 'Modal').classList.remove('active');
+        }
+    </script>
+
+    <script>
+        const texts = [
+            "자연과 함께하는 세상, 우리가 지켜요",
+            "초록빛 지구, 우리의 손으로",
+            "작은 실천이 큰 변화를 만듭니다",
+            "자연은 우리의 친구입니다",
+            "지금이 지구를 위한 행동의 시간이에요"
+        ];
+
+        let currentIndex = 0;
+        const bannerText = document.getElementById('banner-text');
+
+        
+        window.addEventListener('load', () => {
+            bannerText.textContent = texts[currentIndex];
+            bannerText.style.opacity = 1;
+
+            
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % texts.length;
+                bannerText.style.opacity = 0;
+
+                setTimeout(() => {
+                    bannerText.textContent = texts[currentIndex];
+                    bannerText.style.opacity = 1;
+                }, 800); 
+            }, 5000);
+        });
+    </script>
+
+</body>
+
+</html>

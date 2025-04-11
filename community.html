@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>자연 커뮤니티</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+
+<body class="bg-green-50 bg-opacity-80 min-h-screen font-sans">
+    <div class="max-w-4xl mx-auto p-6 mt-10 bg-white bg-opacity-90 rounded-2xl shadow-lg">
+
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold text-green-800">🌿 자연 커뮤니티</h1>
+            <a href="index.html" class="text-green-700 hover:text-green-900 underline">🏡 메인화면으로</a>
+        </div>
+
+        <form id="postForm" class="mb-8">
+            <textarea id="postContent"
+                class="w-full p-4 rounded-lg border border-green-300 focus:outline-none focus:ring-2 focus:ring-green-500"
+                rows="4" placeholder="자연에 대한 당신의 이야기를 들려주세요..."></textarea>
+            <button type="submit"
+                class="mt-4 bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-xl transition-all">글
+                작성하기</button>
+        </form>
+
+        <div id="postList" class="space-y-6">
+            <div class="bg-green-100 p-4 rounded-lg shadow-sm">
+                <p class="text-green-900">🌲 오늘 아침, 산책 중에 들꽃이 피어 있는 걸 봤어요. 정말 예뻤답니다!</p>
+                <span class="text-sm text-green-700">- by 초록별 / 2025-04-08</span>
+            </div>
+            <div class="bg-green-100 p-4 rounded-lg shadow-sm">
+                <p class="text-green-900">🌼 봄이 오면서 새들이 지저귀기 시작했어요. 평화롭네요.</p>
+                <span class="text-sm text-green-700">- by 숲속이야기 / 2025-04-07</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const postForm = document.getElementById("postForm");
+        const postContent = document.getElementById("postContent");
+        const postList = document.getElementById("postList");
+
+        postForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const content = postContent.value.trim();
+            if (content === "") return;
+
+            const today = new Date();
+            const dateStr = today.toISOString().split("T")[0];
+
+            const newPost = document.createElement("div");
+            newPost.className = "bg-green-100 p-4 rounded-lg shadow-sm";
+            newPost.innerHTML = `
+        <p class="text-green-900">🌿 ${content}</p>
+        <span class="text-sm text-green-700">- by 익명 / ${dateStr}</span>
+        `;
+
+            postList.prepend(newPost);
+            postContent.value = "";
+        });
+    </script>
+</body>
+
+</html>
